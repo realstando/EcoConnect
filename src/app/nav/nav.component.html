@@ -1,0 +1,47 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list color="white" class="list">
+      <a mat-list-item routerLink="postings">All Volunteering Oppurtunities</a>
+      <a mat-list-item routerLink="submit">Submit a Service Event</a>
+      @if (adminState) {
+      <a mat-list-item routerLink="backend" class="admin">Approve Service Events</a>
+      <a mat-list-item routerLink="applications" class="admin"
+        >All Submissions</a
+      >
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      @if (isHandset$ | async) {
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      }
+      <img src="career_connect_logo.png" />
+      <span class="title" routerLink="home">EcoConnect</span>
+      <span class="spacer"></span>
+      @if (!loggedIn) {
+      <button mat-button (click)="signUp()">Sign Up</button>
+      <button mat-button (click)="logIn()">Log In</button>
+      } @else {
+      <button mat-button (click)="logOut()">Log Out</button>
+      }
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

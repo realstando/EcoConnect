@@ -1,0 +1,58 @@
+<div class="container">
+  <!-- Container for displaying all job postings -->
+  <h2 class="mat-h2">Approve Service Events</h2>
+  
+  <!-- Material Grid List with two columns -->
+  <mat-grid-list cols="2" [rowHeight]="rowHeight">
+    <!-- Conditional display: Check if 'display' is true -->
+    @if (display) { 
+      <!-- Loop through 'postingList' using a trackBy function for optimization -->
+      @for (doc of postingList ; track doc) { 
+        <!-- Each grid tile contains one job posting -->
+        <mat-grid-tile>
+          <!-- Material Card to display job posting details -->
+          <mat-card class="card">
+            <!-- Material Card Header -->
+            <mat-card-header>
+              <!-- Group title and subtitle -->
+              <mat-card-title-group>
+                <!-- Job Title -->
+                <mat-card-title>{{ doc["job"] }}</mat-card-title>
+                <!-- Company Name -->
+                <mat-card-subtitle>{{ doc["company"] }}</mat-card-subtitle>
+              </mat-card-title-group>
+            </mat-card-header>
+            
+            <!-- Material Card Content: Detailed job information -->
+            <mat-card-content>
+              <!-- Company Contact -->
+              <p><b>Contact: </b>{{ doc["companyCont"] }}</p>
+              <!-- Company Description -->
+              <p><b>Event Description: </b>{{ doc["companyDesc"] }}</p>
+              <!-- Job Responsibilities -->
+              <p><b>Volunteer Responsibilities: </b> {{ doc["jobResp"] }}</p>
+              <!-- Job Qualifications -->
+              <p><b>Volunteer Qualifications: </b>{{ doc["jobQual"] }}</p>
+              <!-- Job Salary -->
+              <p><b>Date/Time: </b>{{ doc["jobSal"] }}</p>
+              <!-- Job Location -->
+              <p><b>Event Location: </b>{{ doc["jobLoc"] }}</p>
+              
+              <!-- Button to approve the job posting -->
+              <button
+                mat-raised-button
+                color="primary"
+                type="submit"
+                (click)="submit($index)"
+                [disabled]="false" 
+                #btn
+              >
+                Approve <!-- Button label -->
+              </button>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      } 
+    }
+  </mat-grid-list>
+</div>

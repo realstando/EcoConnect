@@ -1,0 +1,23 @@
+<div class="container">
+  <h2 class="mat-h2">All Volunteering Submissions</h2>
+  <mat-grid-list cols="2" [rowHeight]="rowHeight">
+    @if (display) { @for (doc of applicationList ; track doc) {
+    <mat-grid-tile>
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{ doc["firstName"] }} {{ doc["lastName"] }}</mat-card-title>
+            <mat-card-subtitle>{{ doc["company"] }}: {{ doc["job"] }}</mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+          <p><b>Email: </b>{{ doc["email"] }}</p>
+          <p><b>Contact: </b>{{ doc["phone"] }}</p>
+          <p><b>Volunteering Experience: </b>{{ doc["jobExp"] }}</p>
+          <p><b>Other Information: </b>{{ doc["other"] }}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    } }
+  </mat-grid-list>
+</div>

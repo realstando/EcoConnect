@@ -1,0 +1,27 @@
+// form {
+//     justify-self: center;
+// }
+
+.full-width {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+
+h2 {
+  margin-top: 2vh;
+}

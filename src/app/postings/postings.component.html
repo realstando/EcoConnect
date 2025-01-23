@@ -1,0 +1,36 @@
+<div class="container">
+    <h2 class="mat-h2">All Volunteering Oppurtunities</h2>
+    <mat-grid-list cols="2" [rowHeight]="rowHeight">
+      @if (display) { @for (doc of postingList ; track doc) {
+      <mat-grid-tile>
+        <mat-card class="card">
+          <mat-card-header>
+            <mat-card-title-group>
+              <mat-card-title>{{ doc["job"] }}</mat-card-title>
+              <mat-card-subtitle>{{ doc["company"] }}</mat-card-subtitle>
+            </mat-card-title-group>
+          </mat-card-header>
+          <mat-card-content>
+            <p><b>Contact: </b>{{ doc["companyCont"] }}</p>
+          <p><b>Event Description: </b>{{ doc["companyDesc"] }}</p>
+          <p><b>Volunteer Responsibilities: </b>{{ doc["jobResp"] }}</p>
+          <p><b>Volunteer Qualifications: </b>{{ doc["jobQual"] }}</p>
+          <p><b>Date/Time: </b>{{ doc["jobSal"] }}</p>
+          <p><b>Event Location: </b>{{ doc["jobLoc"] }}</p>
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              (click)="submit(doc['job'], doc['company'])"
+              [disabled]="false"
+              #btn
+            >
+              Apply
+            </button>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      } }
+    </mat-grid-list>
+  </div>
+  

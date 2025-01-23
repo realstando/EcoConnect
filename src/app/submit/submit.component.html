@@ -1,0 +1,105 @@
+<form [formGroup]="posting" novalidate (ngSubmit)="onSubmit()">
+  <h2 class="mat-h2">Submit a Service Event</h2>
+  <mat-dialog-content>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Organization" formControlName="company" />
+          @if (posting.controls['company'].hasError('required')) {
+          <mat-error>Organization is <strong>required</strong></mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Contact Information" formControlName="companyCont" />
+          @if (posting.controls['companyCont'].hasError('required')) {
+          <mat-error>Contact is <strong>required</strong></mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Role" formControlName="job" />
+          @if (posting.controls['job'].hasError('required')) {
+          <mat-error>Role is <strong>required</strong></mat-error>
+          }
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <textarea
+            matInput
+            placeholder="Brief Event Description"
+            formControlName="companyDesc"
+          ></textarea>
+          @if (posting.controls['companyDesc'].hasError('required')) {
+          <mat-error
+            >Event Description is <strong>required</strong></mat-error
+          >
+          }
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <textarea
+            matInput
+            placeholder="Volunteer Responsibilities"
+            formControlName="jobResp"
+          ></textarea>
+          @if (posting.controls['jobResp'].hasError('required')) {
+          <mat-error
+            >Responsibilities is <strong>required</strong></mat-error
+          >
+          }
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <textarea
+            matInput
+            placeholder="Volunteer Qualifications"
+            formControlName="jobQual"
+          ></textarea>
+          @if (posting.controls['jobQual'].hasError('required')) {
+          <mat-error>Qualifications is <strong>required</strong></mat-error>
+          }
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Event Location" formControlName="jobLoc" />
+          @if (posting.controls['jobLoc'].hasError('required')) {
+          <mat-error>Location is <strong>required</strong></mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Date/Time" formControlName="jobSal" />
+          @if (posting.controls['jobSal'].hasError('required')) {
+          <mat-error>Time is <strong>required</strong></mat-error>
+          }
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!posting!.valid"
+      >
+        Done
+      </button>
+    </div>
+  </mat-dialog-content>
+</form>
