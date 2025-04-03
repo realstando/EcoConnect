@@ -45,9 +45,9 @@ export class PostingsComponent {
       .observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
       .subscribe((result) => {
         if (result.matches) {
-          this.rowHeight = '62vh'; // Adjust for smaller screens
+          this.rowHeight = '110vh'; // Adjust for smaller screens
         } else {
-          this.rowHeight = '45vh'; // Default for larger screens
+          this.rowHeight = '70vh'; // Default for larger screens
         }
       });
   }

@@ -59,7 +59,7 @@ export class SubmitComponent implements OnInit {
 
   readonly dialog = inject(MatDialog);
   onSubmit(): void {
-    //addDoc(this.allPostings, this.posting.value);
+    addDoc(this.allPostings, this.posting.value);
     this.posting.reset();
     Object.keys(this.posting.controls).forEach((key) => {
       const control = this.posting.get(key);
